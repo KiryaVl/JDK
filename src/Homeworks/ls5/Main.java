@@ -14,29 +14,40 @@ public class Main {
     public static void main(String[] args) {
         Runnable philosopher = () -> {
             try {
-                System.out.println(Thread.currentThread().getName() + " завтракает");
-                eatTime.await();
-                Thread.sleep(500);
+                for (int i = 0; i < 3; i++) {
+                    System.out.println(Thread.currentThread().getName() + " кушает");
+                    eatTime.await();
+                    Thread.sleep(500);
 
-                System.out.println(Thread.currentThread().getName() + " размышляет");
-                Thread.sleep(3000);
+                    System.out.println(Thread.currentThread().getName() + " размышляет");
+                    Thread.sleep(3000);
 
-                System.out.println(Thread.currentThread().getName() + " обедает");
-                eatTime.await();
-                Thread.sleep(500);
-
-                System.out.println(Thread.currentThread().getName() + " размышляет");
-                Thread.sleep(3000);
-
-                System.out.println(Thread.currentThread().getName() + " ужинает");
-                eatTime.await();
-                Thread.sleep(500);
-
-                System.out.println(Thread.currentThread().getName() + " размышляет");
-                Thread.sleep(3000);
-
+                }
                 System.out.println(Thread.currentThread().getName() + " ушёл спать");
                 sleep.countDown();
+//                System.out.println(Thread.currentThread().getName() + " завтракает");
+//                eatTime.await();
+//                Thread.sleep(500);
+//
+//                System.out.println(Thread.currentThread().getName() + " размышляет");
+//                Thread.sleep(3000);
+//
+//                System.out.println(Thread.currentThread().getName() + " обедает");
+//                eatTime.await();
+//                Thread.sleep(500);
+//
+//                System.out.println(Thread.currentThread().getName() + " размышляет");
+//                Thread.sleep(3000);
+//
+//                System.out.println(Thread.currentThread().getName() + " ужинает");
+//                eatTime.await();
+//                Thread.sleep(500);
+//
+//                System.out.println(Thread.currentThread().getName() + " размышляет");
+//                Thread.sleep(3000);
+//
+//                System.out.println(Thread.currentThread().getName() + " ушёл спать");
+//                sleep.countDown();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
